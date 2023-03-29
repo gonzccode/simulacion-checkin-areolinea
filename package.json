@@ -1,0 +1,23 @@
+{
+  "name": "simulacion-checkin-areolinea",
+  "version": "1.0.0",
+  "description": "simulador de check-in",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonzccode/simulacion-checkin-areolinea.git"
+  },
+  "author": "gonzalo canaza (gonzccode)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gonzccode/simulacion-checkin-areolinea/issues"
+  },
+  "homepage": "https://github.com/gonzccode/simulacion-checkin-areolinea#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
