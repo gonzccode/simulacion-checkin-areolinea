@@ -6,23 +6,6 @@ router.get("/", async(request, response) => {
     return response.send("Welcome to Simulator Check-in")
 })
 
-router.get("/flights", async (request, response) => {
-
-    try {
-        const flightsController = new FlightsController();
-        const listFligths = await flightsController.getFlights();
-
-        return response.json({
-            ok: true,
-            message: 'endpoint flights',
-            flights: listFligths
-        });
-
-    } catch (error) {
-        console.log("~❌ file: flights.router ~ error => /flights, ",error);
-    }  
-});
-
 router.get("/flights/:id/passengers", async (request, response) => {
     const { id } = request.params;
     const flightsController = new FlightsController();
@@ -42,8 +25,7 @@ router.get("/flights/:id/passengers", async (request, response) => {
 
     return response.status(200).json({
         code: 200,
-        data: flightId,
-        id: id
+        data: flightId
     });
     
 });
