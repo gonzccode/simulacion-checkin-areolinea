@@ -2,14 +2,14 @@ const { Router } = require("express");
 const router = Router();
 const FlightsController = require("../controllers/flightsController");
 
-router.get("/", (request, response) => {
+router.get("/", async(request, response) => {
     return response.send("Welcome to Simulator Check-in")
 })
 
-router.get("/flights/:id/passengers", (request, response) => {
+router.get("/flights/:id/passengers", async (request, response) => {
     const { id } = request.params;
     const flightsController = new FlightsController();
-    const flightId = flightsController.getFlightsById(Number(id));
+    const flightId = await flightsController.getFlightsById(Number(id));
     //console.log('flightId', flightId)
     if (!flightId) {
         return response.status(404).json({
