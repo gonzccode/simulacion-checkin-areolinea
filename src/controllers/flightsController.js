@@ -6,14 +6,14 @@ class FlightsController {
         this.result = [];
     }
 
-    getFlightsById = async (id) => {
+    getFlightsById = (id) => {
         try {
-            this.result = await pool.query(`SELECT * FROM flight where flight_id = ${id};`);
+            this.result = pool.query(`SELECT * FROM flight where flight_id = ${id};`);
             
             if(this.result[0].length > 0) {
                 const flight = this.result[0][0];
 
-                const boarding = await pool.query(
+                const boarding = pool.query(
                     `
                     SELECT 
                     b.passenger_id as passengerId, 
@@ -41,7 +41,7 @@ class FlightsController {
                 const boardingTotal = [...boarding[0]];
                 //console.log('boardingTotal', boardingTotal);
 
-                const seats = await pool.query(
+                const seats = pool.query(
                     `
                     SELECT 
                     seat_id as seatId,
